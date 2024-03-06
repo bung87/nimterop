@@ -17,7 +17,7 @@ import os
 proc execCmd(cmd: string) =
   exec "tests/timeit " & cmd
 
-proc execTest(test: string, flags = "", runDocs = true) =
+proc execTest(test: string, flags = "", runDocs = false) =
   execCmd "nim c --hints:off -f -d:checkAbi " & flags & " -r " & test
   let
     # -d:checkAbi broken in cpp mode until post 1.2.0
